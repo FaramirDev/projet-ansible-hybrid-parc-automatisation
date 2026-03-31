@@ -71,23 +71,23 @@ L'infrastructure repose sur un serveur de contrôle Ansible (Ubuntu) communiquan
 
 ---
 ## ------ SOMMAIRE ------ 
-- [Partie 1 : Presentation Serveur Windows Active Directory](#-------partie-1---presentation-serveur-win-ad--identité--gouvernance-------)
+- [Partie 1 : Presentation Serveur Windows Active Directory](#-----partie-1---presentation-serveur-win-ad--identité--gouvernance-----)
     - [1. Gourvernace Annuaire - Data Driven](#1-gouvernance-de-lannuaire-data-driven-ad)
     - [2. Implementation Modele AGDLP](#2-implémentation-du-modèle-agdlp)
     - [3. Service de Partage - Permission NTFS](#3-service-de-fichiers--permissions-ntfs)
     - [4. Coffre Fort - Cryptomator & KeePass](#4-coffre-fort-numérique--cryptomator--keepass)
 
 - [Partie 2 : Presenation Serveur Linux - Ansible](#-------partie-2--presentation-serveur-linux-ansible--orchestration--------)
-    - [1. DEMO - Automatisation n°1 - Audit Parc Windows](#----demonstration-automatisation-n1-audit-des-machines-windows-via-serveur-ansible----)
-    - [2. DEMO - Automatisation n°2 - Audit Serveur Ansible](#----demonstration-automatisation-n2---hardening-du-serveur-ansible-python----)
-    - [3. DEMO - Automatisation n°3 - Mise à Jours Parc Hybride](#----demonstration-automatisation-n3---gestion-du-cycle-de-vie-patch-management----)
+    - [1. DEMO - Automatisation n°1 - Audit Parc Windows](#----demo-automatisation-n1-audit-des-machines-windows-via-serveur-ansible----)
+    - [2. DEMO - Automatisation n°2 - Audit Serveur Ansible](#----demo-automatisation-n2---hardening-du-serveur-ansible-python----)
+    - [3. DEMO - Automatisation n°3 - Mise à Jours Parc Hybride](#----demo-automatisation-n3---gestion-du-cycle-de-vie-patch-management----)
     
-- [Partie 3 : Presentation Politique & Configuration de Sauvegarde - VEAAM](#-------partie-3--presentation--politique-de-sauvegarde---veeam-backup-------)
+- [Partie 3 : Presentation Politique & Configuration de Sauvegarde - VEAAM](#-----partie-3--presentation--politique-de-sauvegarde---veeam------)
     - [1. Scenarios Restauration Critiques](#2-scénarios-de-restauration-critiques)
 ---
 ## ------ Presentation ------ 
 ![ Capture Annoncement Presenation AD](./Captures/Partie-01-AD/00-Presenation.png)
-## ------ PARTIE 1 :  Presentation Serveur Win AD : Identité & Gouvernance ------ 
+## ---- PARTIE 1 :  Presentation Serveur Win AD : Identité & Gouvernance ----
 ### 1. Gouvernance de l'Annuaire (Data-Driven AD)
 Industrialisation de la gestion des objets via PowerShell pour garantir l'intégrité des données.
 
@@ -146,7 +146,7 @@ Flux automatisé de détection des dérives logicielles.
 
 - **Reporting** : Centralisation automatique des rapports d'audit `[OK]` ou `[REFUSE-ALERTE]` avec tentative de **Desinstallation** puis écriture du rapport sur le serveur de logs AD (`Ansible$`).
 
-### --- Demonstration Automatisation n°1 Audit des Machines windows via Serveur Ansible --- 
+### --- DEMO Automatisation n°1 Audit des Machines windows via Serveur Ansible --- 
 
 Lors de la démonstration, nous avons renseigné dans la liste Rouge le Software `Canva` qui a été préablement installé sur la machine cible afin de démontré l'efficacité du Script d'Audit. 
 
@@ -159,7 +159,7 @@ Lors de la démonstration, nous avons renseigné dans la liste Rouge le Software
 **3. Rapport Detaillé de l'Audit :**
 ![Capture Demonstration Script audit 01 - 3](./Captures/Partie-02-Ansible/01-AuditWindows03.jpg)
 
-### --- Demonstration Automatisation n°2 - Hardening du Serveur Ansible (Python) ---
+### --- DEMO Automatisation n°2 - Hardening du Serveur Ansible (Python) ---
 Audit de sécurité interne du nœud de contrôle pour prévenir toute escalade de privilèges.
 
 - **Vérification Python** : Analyse des permissions et des propriétaires `(root:root)` sur les fichiers critiques : `/etc/shadow`, clés privées `SSH`, et configurations `ansible.cfg`.
@@ -169,7 +169,7 @@ Audit de sécurité interne du nœud de contrôle pour prévenir toute escalade 
 **1. Lancement & Résultat de l'Audit du Serveur Ansible :** 
 ![Capture Demonstration Audit Serveur Ansible](./Captures/Partie-02-Ansible/02-AuditAnsible01.jpg)
 
-### --- Demonstration Automatisation n°3 - Gestion du Cycle de Vie (Patch Management) ---
+### --- DEMO Automatisation n°3 - Gestion du Cycle de Vie (Patch Management) ---
 Playbooks d'automatisation des mises à jour système (Windows Updates & Apt-Upgrade) avec gestion des redémarrages et vérification post-patching.
 
 **1. Schéma du Dérouler du Playbook :**
@@ -180,7 +180,7 @@ Playbooks d'automatisation des mises à jour système (Windows Updates & Apt-Upg
 
 ---
 ![Capture Presenation Veeam Backup](/Captures/Partie-03-VeeamBackup/00-Presentation.png)
-## ------ PARTIE 3 : Presentation  Politique de Sauvegarde - VEEAM Backup ------ 
+## ---- PARTIE 3 : Presentation  Politique de Sauvegarde - VEEAM -----
 ### 1. Politique de Sauvegarde (BCP/DRP)
 **Rédaction** d'une **Politique** de **Sauvegarde** avec un Plan de Continuité d'Activité incluant la règle du 3-2-1-1-0, disponible dans les **Livrables**.
 
